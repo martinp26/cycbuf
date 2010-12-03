@@ -1,12 +1,12 @@
 ;;; cycbuf.el --- Cycle buffers code by Martin Pohlack, inspired by
 ;;;               swbuff.el, swbuff-x.el, and bs.el
 
-;; Copyright (C) 2007, 2008 by Martin Pohlack
+;; Copyright (C) 2007--2010 by Martin Pohlack
 
 ;; Author: Martin Pohlack martinp (at) gmx.de
-;; Version: 0.4.9
+;; Version: 0.5.0
 ;; Keywords: files, convenience, buffer switching
-;; Time-stamp: <2008-10-15 martinp>
+;; Time-stamp: <2010-12-03 martinp>
 
 ;; This file is NOT part of GNU Emacs.
 
@@ -61,6 +61,8 @@
 
 ;;; Changelog:
 
+;; 0.5.0
+;;  - added non-timeout version for cycling commands
 ;; 0.4.9
 ;;  - pipe car of cycbuf-file-name-replacements through expand-file-name
 ;; 0.4.8
