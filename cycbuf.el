@@ -41,11 +41,13 @@
 
 ;;; Usage:
 
-;; I define keyboard shortcuts and load cycbuf.el as follows (init.el):
+;; Define keyboard shortcuts and load cycbuf.el as follows (init.el):
 ;;
 ;; (require 'cycbuf)
-;; (global-set-key [(meta right)] 'cycbuf-switch-to-next-buffer)
-;; (global-set-key [(meta left)]  'cycbuf-switch-to-previous-buffer)
+;; (global-set-key [(meta right)]       'cycbuf-switch-to-next-buffer)
+;; (global-set-key [(meta left)]        'cycbuf-switch-to-previous-buffer)
+;; (global-set-key [(meta super right)] 'cycbuf-switch-to-next-buffer-no-timeout)
+;; (global-set-key [(meta super left)]  'cycbuf-switch-to-previous-buffer-no-timeout)
 
 ;;; Bugs:
 
@@ -274,6 +276,20 @@ This way we only have to call `cycbuf-get-buffer-list' once.")
 
 
 ;; interactive interface
+
+(defun cycbuf-switch-to-previous-buffer-no-timeout ()
+  "\\[cycbuf-switch-to-previous-buffer] switch to the previous buffer
+in the buffer list.  Hide timeout is disabled"
+  (interactive)
+  (let ((cycbuf-clear-delay 31536000))
+    (cycbuf-switch-to-previous-buffer)))
+
+(defun cycbuf-switch-to-next-buffer-no-timeout ()
+  "\\[cycbuf-switch-to-previous-buffer] switch to the previous buffer
+in the buffer list.  Hide timeout is disabled"
+  (interactive)
+  (let ((cycbuf-clear-delay 31536000))
+    (cycbuf-switch-to-next-buffer)))
 
 (defun cycbuf-switch-to-previous-buffer ()
   "\\[cycbuf-switch-to-previous-buffer] switch to the previous buffer
