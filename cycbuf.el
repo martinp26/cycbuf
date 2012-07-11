@@ -4,7 +4,7 @@
 ;; Copyright (C) 2007--2010 by Martin Pohlack
 
 ;; Author: Martin Pohlack martinp (at) gmx.de
-;; Version: 0.5.0
+;; Version: 0.5.1
 ;; Keywords: files, convenience, buffer switching
 ;; Time-stamp: <2010-12-03 martinp>
 
@@ -758,5 +758,19 @@ Aside from two header lines each line describes one buffer."
 	truncate-lines t)
   (run-hooks 'cycbuf-mode-hook))
 
+
+;;;###autoload
+(defun cycbuf-init ()
+  (interactive)
+  (global-set-key
+   [(meta right)] 'cycbuf-switch-to-next-buffer)
+  (global-set-key
+   [(meta left)] 'cycbuf-switch-to-previous-buffer)
+  (global-set-key
+   [(meta super right)] 'cycbuf-switch-to-next-buffer-no-timeout)
+  (global-set-key
+   [(meta super left)] 'cycbuf-switch-to-previous-buffer-no-timeout))
+
 (provide 'cycbuf)
+
 ;;; cycbuf.el ends here
