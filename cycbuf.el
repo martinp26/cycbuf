@@ -61,6 +61,8 @@
 
 ;;; Changelog:
 
+;; 0.5.1
+;;  - added init function for packagin system (Nic Ferrier)
 ;; 0.5.0
 ;;  - added non-timeout version for cycling commands
 ;; 0.4.9
