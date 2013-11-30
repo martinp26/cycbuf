@@ -4,9 +4,9 @@
 ;; Copyright (C) 2007--2010 by Martin Pohlack
 
 ;; Author: Martin Pohlack martinp (at) gmx.de
-;; Version: 0.5.1
+;; Version: 0.5.2
 ;; Keywords: files, convenience, buffer switching
-;; Time-stamp: <2010-12-03 martinp>
+;; Time-stamp: <2013-11-30 martinp>
 
 ;; This file is NOT part of GNU Emacs.
 
@@ -61,6 +61,8 @@
 
 ;;; Changelog:
 
+;; 0.5.2
+;;  - small work-around for window-layout mangling
 ;; 0.5.1
 ;;  - added init function for packagin system (Nic Ferrier)
 ;; 0.5.0
@@ -516,8 +518,28 @@ apply some filtering for shortening."
   (let ((buffer (get-buffer cycbuf-status-buffer-name))
 	(buffer-list (nreverse cycbuf-initial-buffer-list)))
 
-    (if (window-live-p cycbuf-status-window)
-	(delete-window cycbuf-status-window))
+    (when (window-live-p cycbuf-status-window)
+      ;;; Ugly workaround: Originally, we want to preserve to window
+      ;;; layout in the current frame and restore it after discarding
+      ;;; our window.  We do not want to restore the window-to-buffer
+      ;;; association though, as change that is core to this program,
+      ;;; obviously.
+      ;;;
+      ;;; There is currently no sensible way of doing that, because
+      ;;; creating our initial window may distort other windows in a
+      ;;; strange way and may even hide some.  Another problem is that
+      ;;; our window is resized after its content creation.  We try to
+      ;;; undo the later aspect by shrinking the window back to its
+      ;;; initial size before killing it.  That cured the symptoms in
+      ;;; testing in almost all sitation except for a very small
+      ;;; window at the frame bottom which was enlarged by one line
+      ;;; once.
+      ;;;
+      ;;; This function only effects the inner height, the
+      ;;; split-vertically functions also accounts for the mode-line
+      ;;; (2 -> 1)
+      (set-window-text-height cycbuf-status-window 1)
+      (delete-window cycbuf-status-window))
 
     (if buffer (kill-buffer buffer))
 
