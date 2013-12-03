@@ -1,13 +1,12 @@
-;;; cycbuf.el --- Cycle buffers code by Martin Pohlack, inspired by
-;;;               swbuff.el, swbuff-x.el, and bs.el
+;;; cycbuf.el --- Cycle buffers, inspired by swbuff.el, swbuff-x.el, and bs.el
 
-;; Copyright (C) 2007--2010 by Martin Pohlack
+;; Copyright (C) 2007-2013 by Martin Pohlack
 
 ;; Author: Martin Pohlack martinp (at) gmx.de
 ;; URL: https://github.com/martinp26/cycbuf
-;; Version: 0.5.2
+;; Version: 0.5.3
 ;; Keywords: files, convenience, buffer switching
-;; Time-stamp: <2013-11-30 martinp>
+;; Time-stamp: <2013-12-03 martinp>
 
 ;; This file is NOT part of GNU Emacs.
 
@@ -62,6 +61,8 @@
 
 ;;; Changelog:
 
+;; 0.5.3
+;;  - ELPA syntax adaptions, more autoload cookies
 ;; 0.5.2
 ;;  - small work-around for window-layout mangling
 ;; 0.5.1
@@ -776,6 +777,7 @@ function.  SORT-DESCRIPTION is an element of
     ;; sorting
     (setq result (sort result cycbuf-buffer-sort-function))))
 
+;;;###autoload
 (defun cycbuf-mode ()
   "Major mode for editing a subset of Emacs' buffers.
 Aside from two header lines each line describes one buffer."
