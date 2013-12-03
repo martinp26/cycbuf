@@ -327,7 +327,7 @@ buffer list."
 (defun cycbuf-initialize ()
   "Initialize cycbuf variables prior to a switch sequence."
   (setq cycbuf-buffer-coming-from  (current-buffer)
-        cycbuf-buffer-list         (bsX-buffer-list)
+        cycbuf-buffer-list         (cycbuf-bsX-buffer-list)
 	cycbuf-initial-buffer-list (buffer-list)  ;cycbuf-buffer-list
 	cycbuf-initial-buffer      (car cycbuf-initial-buffer-list)
 	cycbuf-initial-window      (selected-window)
@@ -737,7 +737,7 @@ normally *buffer-selection*."
                 (make-string (- cycbuf-name-entry-length (length name)) ? ))
       name)))
 
-(defun bsX-buffer-list (&optional list)
+(defun cycbuf-bsX-buffer-list (&optional list)
   "Return a list of buffers to be shown.
 LIST is a list of buffers to test for appearence in Buffer
 Selection Menu.  The result list depends on the global variables
