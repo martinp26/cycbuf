@@ -1,7 +1,6 @@
-;;; cycbuf.el --- Cycle buffers code by Martin Pohlack, inspired by
-;;;               swbuff.el, swbuff-x.el, and bs.el
+;;; cycbuf.el --- Cycle buffers code, inspired by swbuff, swbuff-x, and bs
 
-;; Copyright (C) 2007--2010 by Martin Pohlack
+;; Copyright (C) 2007-2010 by Martin Pohlack
 
 ;; Author: Martin Pohlack martinp (at) gmx.de
 ;; URL: https://github.com/martinp26/cycbuf
