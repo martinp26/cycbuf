@@ -283,6 +283,7 @@ This way we only have to call `cycbuf-get-buffer-list' once.")
 
 ;; interactive interface
 
+;;;###autoload
 (defun cycbuf-switch-to-previous-buffer-no-timeout ()
   "\\[cycbuf-switch-to-previous-buffer] switch to the previous buffer
 in the buffer list.  Hide timeout is disabled"
@@ -290,6 +291,7 @@ in the buffer list.  Hide timeout is disabled"
   (let ((cycbuf-clear-delay 31536000))
     (cycbuf-switch-to-previous-buffer)))
 
+;;;###autoload
 (defun cycbuf-switch-to-next-buffer-no-timeout ()
   "\\[cycbuf-switch-to-previous-buffer] switch to the previous buffer
 in the buffer list.  Hide timeout is disabled"
@@ -297,6 +299,7 @@ in the buffer list.  Hide timeout is disabled"
   (let ((cycbuf-clear-delay 31536000))
     (cycbuf-switch-to-next-buffer)))
 
+;;;###autoload
 (defun cycbuf-switch-to-previous-buffer ()
   "\\[cycbuf-switch-to-previous-buffer] switch to the previous buffer
 in the buffer list."
@@ -310,6 +313,7 @@ in the buffer list."
   ;(redisplay t)  ;; maybe call every 5th repetition or so?
   )
 
+;;;###autoload
 (defun cycbuf-switch-to-next-buffer ()
   "\\[cycbuf-switch-to-next-buffer] switch to the next buffer in the
 buffer list."
