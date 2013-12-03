@@ -4,6 +4,7 @@
 ;; Copyright (C) 2007--2010 by Martin Pohlack
 
 ;; Author: Martin Pohlack martinp (at) gmx.de
+;; URL: https://github.com/martinp26/cycbuf
 ;; Version: 0.5.2
 ;; Keywords: files, convenience, buffer switching
 ;; Time-stamp: <2013-11-30 martinp>
